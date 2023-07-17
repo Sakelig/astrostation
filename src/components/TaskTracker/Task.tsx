@@ -43,7 +43,7 @@ export const Task = ({ task, tasks }) => {
     event.preventDefault();
     toggleMenu(task.id, !task.menuToggled);
 
-    /* This is linear search, however it did not seem to 
+    /* This is linear search, however it did not seem to
        have any perf impact for 100-200 tasks at a time */
     tasks.forEach((task_: ITask) => {
       if (task_.menuToggled) toggleMenu(task_.id, false);
@@ -66,7 +66,7 @@ export const Task = ({ task, tasks }) => {
   };
 
   const markNotCompleteWhenTracking = () => {
-    if (!task.inProgress) toggleInProgressState(task.id);
+    toggleInProgressState(task.id);
 
     toggleMenu(task.id, false);
     if (task.completed) setCompleted(task.id, false);
