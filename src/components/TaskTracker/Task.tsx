@@ -72,6 +72,13 @@ export const Task = ({ task, tasks }) => {
     if (task.completed) setCompleted(task.id, false);
   };
 
+  const markNotTrackingWhenCompleted = () => {
+    if (task.inProgress) toggleInProgressState(task.id)
+
+    setCompleted(task.id, !task.completed);
+    toggleMenu(task.id, false);
+  }
+
   useEffect(() => {
     if (timerQueue === 0 && !task.alerted && task.inProgress) {
       setPomodoroCounter(task.id);
@@ -146,16 +153,16 @@ export const Task = ({ task, tasks }) => {
                 }}
                 className="cursor-pointer rounded-md px-5 py-2 hover:bg-neutral-600"
               >
-                <div className="select-none ">Track Task</div>
+                <div className="select-none ">{ task.inProgress ? "Un-track" +
+                  " Task" : "Track Task" }</div>
               </li>
               <li
                 onClick={() => {
-                  setCompleted(task.id, !task.completed);
-                  toggleMenu(task.id, false);
+                  markNotTrackingWhenCompleted();
                 }}
                 className="cursor-pointer rounded-md px-5 py-2 hover:bg-neutral-600"
               >
-                <div className="select-none">Complete Task</div>
+                <div className="select-none">{ task.completed ? "Not-finished Task" : "Complete Task" }</div>
               </li>
               <li
                 onClick={() => {
