@@ -153,8 +153,7 @@ export const Task = ({ task, tasks }) => {
                 }}
                 className="cursor-pointer rounded-md px-5 py-2 hover:bg-neutral-600"
               >
-                <div className="select-none ">{ task.inProgress ? "Un-track" +
-                  " Task" : "Track Task" }</div>
+                <div className="select-none ">{ task.inProgress ? "Un-track Task" : "Track Task"}</div>
               </li>
               <li
                 onClick={() => {
@@ -162,7 +161,7 @@ export const Task = ({ task, tasks }) => {
                 }}
                 className="cursor-pointer rounded-md px-5 py-2 hover:bg-neutral-600"
               >
-                <div className="select-none">{ task.completed ? "Not-finished Task" : "Complete Task" }</div>
+                <div className="select-none">{ task.completed ? "Not-finished Task" : "Complete Task"}</div>
               </li>
               <li
                 onClick={() => {
